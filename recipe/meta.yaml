@@ -21,6 +21,9 @@ requirements:
     - pip
     - python
 
+  build:
+    - {{ compiler('c') }}
+
   run:
     - python
 
