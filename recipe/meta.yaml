@@ -23,6 +23,8 @@ requirements:
   host:
     - pip
     - python
+    - setuptools
+    - wheel
 
   run:
     - python
@@ -30,6 +32,10 @@ requirements:
 test:
   imports:
     - greenlet
+  requires:
+    - pip
+  commands:
+    - pip check
 
 about:
   home: https://github.com/python-greenlet/greenlet
