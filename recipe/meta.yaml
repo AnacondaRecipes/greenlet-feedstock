@@ -1,6 +1,6 @@
 {% set name = "greenlet" %}
-{% set version = "1.1.1" %}
-{% set sha256 = "c0f22774cd8294078bdf7392ac73cf00bfa1e5e0ed644bd064fdabc5f2a2f481" %}
+{% set version = "1.1.2" %}
+{% set sha256 = "e30f5ea4ae2346e62cedde8794a56858a67b878dd79f7df76a0767e356b1744a" %}
 
 package:
   name: {{ name|lower }}
