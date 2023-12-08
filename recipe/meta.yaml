@@ -1,5 +1,5 @@
 {% set name = "greenlet" %}
-{% set version = "2.0.1" %}
+{% set version = "3.0.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/greenlet-{{ version }}.tar.gz
-  sha256: 42e602564460da0e8ee67cb6d7236363ee5e131aa15943b6670e44e5c2ed0f67
+  sha256: 816bd9488a94cba78d93e1abb58000e8266fa9cc2aa9ccdd6eb0696acb24005b
 
 build:
   number: 0
-  script: {{ PYTHON }} -m pip install --no-deps --ignore-installed .
+  script: {{ PYTHON }} -m pip install --no-deps --no-build-isolation -vv --ignore-installed .
   missing_dso_whitelist:  # [s390x]
     - '$RPATH/ld64.so.1'  # [s390x]
 
