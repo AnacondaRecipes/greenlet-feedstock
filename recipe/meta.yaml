@@ -1,17 +1,18 @@
 {% set name = "greenlet" %}
-{% set version = "3.2.4" %}
+{% set version = "3.3.2" %}
 
+# Upstream tests were not added due to missing objgraph from main channel
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 0dca0d95ff849f9a364385f36ab49f50065d76964944638be9691e1832e9f86d
+  sha256: 2eaf067fc6d886931c7962e8c6bede15d2f01965560f3359b27c80bde2d151f2
 
 build:
   number: 0
-  skip: True  # [py<39]
+  skip: true  # [py<39]
   script: {{ PYTHON }} -m pip install --no-deps --no-build-isolation -vv --ignore-installed .
 
 requirements:
@@ -27,7 +28,6 @@ requirements:
   run:
     - python
 
-# Upstream tests were not added due to missing objgraph from main channel
 test:
   imports:
     - greenlet
