@@ -28,7 +28,7 @@ requirements:
 
 test:
   source_files:
-    - src/greenlet/tests/test_greenlet.py
+    - src/greenlet/tests
   imports:
     - greenlet
   requires:
