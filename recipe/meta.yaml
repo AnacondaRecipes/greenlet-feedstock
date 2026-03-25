@@ -34,6 +34,7 @@ test:
   requires:
     - pip
     - pytest
+    - psutil
   commands:
     - pip check
     - pytest -v src/greenlet/tests
