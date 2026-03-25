@@ -26,18 +26,14 @@ requirements:
   run:
     - python
 
+# Upstream tests were not added due to missing objgraph from main channel
 test:
-  source_files:
-    - src/greenlet/tests
   imports:
     - greenlet
   requires:
     - pip
-    - pytest
-    - psutil
   commands:
     - pip check
-    - pytest -v src/greenlet/tests
 
 about:
   home: https://github.com/python-greenlet/greenlet
