@@ -1,7 +1,6 @@
 {% set name = "greenlet" %}
 {% set version = "3.3.2" %}
 
-# Upstream tests were not added due to missing objgraph from main channel
 package:
   name: {{ name|lower }}
   version: {{ version }}
@@ -12,7 +11,7 @@ source:
 
 build:
   number: 0
-  skip: true  # [py<39]
+  skip: true  # [py<310]
   script: {{ PYTHON }} -m pip install --no-deps --no-build-isolation -vv --ignore-installed .
 
 requirements:
@@ -23,18 +22,21 @@ requirements:
   host:
     - pip
     - python
-    - setuptools >=40.8.0
-    - wheel
+    - setuptools >=77.0.3
   run:
     - python
 
 test:
+  source_files:
+    - src/greenlet/tests/test_greenlet.py
   imports:
     - greenlet
   requires:
     - pip
+    - pytest
   commands:
     - pip check
+    - pytest -v src/greenlet/tests
 
 about:
   home: https://github.com/python-greenlet/greenlet
