@@ -1,5 +1,5 @@
 {% set name = "greenlet" %}
-{% set version = "3.2.4" %}
+{% set version = "3.3.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 0dca0d95ff849f9a364385f36ab49f50065d76964944638be9691e1832e9f86d
+  sha256: 2eaf067fc6d886931c7962e8c6bede15d2f01965560f3359b27c80bde2d151f2
 
 build:
   number: 0
-  skip: True  # [py<39]
+  skip: true  # [py<310]
   script: {{ PYTHON }} -m pip install --no-deps --no-build-isolation -vv --ignore-installed .
 
 requirements:
@@ -22,8 +22,7 @@ requirements:
   host:
     - pip
     - python
-    - setuptools >=40.8.0
-    - wheel
+    - setuptools >=77.0.3
   run:
     - python
 
